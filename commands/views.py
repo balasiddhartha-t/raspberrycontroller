@@ -14,13 +14,13 @@ def index(request):
 
 
 def command(request, command):
-    if command == "forward":
+    if command == "backward":
         print("Command Forward has been called")
         GPIO.output(3, True)
         GPIO.output(5, False)
         GPIO.output(8, True)
         GPIO.output(10, False)
-    elif command == "backward":
+    elif command == "forward":
         print("Command Backward has been called")
         GPIO.output(3, False)
         GPIO.output(5, True)
@@ -28,9 +28,9 @@ def command(request, command):
         GPIO.output(10, True)
     elif command == "right":
         print("Command Right has been called")
-        GPIO.output(3, True)
+        GPIO.output(3, False)
         GPIO.output(5, False)
-        GPIO.output(8, False)
+        GPIO.output(8, True)
         GPIO.output(10, False)
     elif command == "left":
         print("Command Left has been called")
@@ -40,7 +40,7 @@ def command(request, command):
         GPIO.output(10, False)
     elif command == "stop":
         print("Command Stop has been called")
-        GPIO.output(3, True)
+        GPIO.output(3, False)
         GPIO.output(5, False)
         GPIO.output(8, False)
         GPIO.output(10, False)
