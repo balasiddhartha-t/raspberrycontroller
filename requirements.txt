@@ -1,1 +1,4 @@
-RPi
+RPi.GPIO
+numpy
+minio
+
