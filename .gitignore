@@ -1,0 +1,5 @@
+commands/__pycache__/*
+raspberrysite/__pycache__/*
+temp
+db.sqlite3
+.env

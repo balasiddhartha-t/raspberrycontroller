@@ -2,9 +2,9 @@
 Description=A useful description to be shown in command-line tools
 
 [Service]
-Restart=on-failure
-WorkingDirectory=/var/www/django-projectname/projectname
-ExecStart=/usr/bin/python3 /home/kali/Desktop/raspberrycontroller/manage.py runserver 0.0.0.0:8000
+Restart=always
+ExecStart=sudo /usr/bin/python3 /home/kali/Desktop/raspberrycontroller/manage.py runserver 0.0.0.0:8000
+User=root
 
 [Install]
 WantedBy=multi-user.target
