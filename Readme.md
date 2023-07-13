@@ -12,14 +12,11 @@ A USB camera can be connected to raspberry pi to record the video and upload it 
 To start with all the required packages use the following command:
 
 ````
-```
 sh install-dependencies.sh
-```
 ````
 
 A sample .env file will contain the following params.
 ````
-```
 Sample env file contains:
 MINIO_CLIENT_IP="localhost:9000"
 MINIO_ACCESS_KEY="some-access-key"
@@ -29,7 +26,6 @@ MINIO_BUCKET_NAME="some-raspi-bucket"
 MINIO_ACCESS_SECURE=False
 VIDEO_PATH="/temp/"
 VIDEO_FILENAME="myvideo"
-```
 ````
 
 A MinIO server can be started with using the following commands:
