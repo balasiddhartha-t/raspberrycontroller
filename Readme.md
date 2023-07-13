@@ -17,7 +17,6 @@ sh install-dependencies.sh
 
 A sample .env file will contain the following params.
 ````
-Sample env file contains:
 MINIO_CLIENT_IP="localhost:9000"
 MINIO_ACCESS_KEY="some-access-key"
 MINIO_SECRET_KEY="some-access-secret"
