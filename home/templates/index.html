@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home Page</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% load compress %}
+    <link href="{% static 'test.css' %}" media="screen, projection" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <nav>
+        <a class="button top" href="/command/forward"><i class="icon-play"></i>+</a>
+        <a class="button right" href="/command/right"><i class="icon-forward"></i></a>
+        <a class="button left" href="/command/left"><i class="icon-backward"></i></a>
+        <a class="button bottom" href="/command/backward"><i class="icon-pause"></i></a>
+        <a class="center-button" href="/command/stop"><i class="icon-stop"></i></a>
+      </nav>
+</body>
+</html>

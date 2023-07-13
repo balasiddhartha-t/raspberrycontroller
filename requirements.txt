@@ -1,4 +1,6 @@
 RPi.GPIO
 numpy
 minio
-
+django-compressor==2.4
+django-libsass==0.8
+django-bootstrap-v5

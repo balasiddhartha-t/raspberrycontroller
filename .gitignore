@@ -3,3 +3,5 @@ raspberrysite/__pycache__/*
 temp
 db.sqlite3
 .env
+.sass-cache
+capture/__pycache__/*
