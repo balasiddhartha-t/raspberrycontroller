@@ -3,6 +3,7 @@ import os
 import threading
 from datetime import datetime
 from django.http import HttpResponse
+from django.shortcuts import render
 from minio import Minio
 from dotenv import load_dotenv
 
@@ -30,8 +31,6 @@ vid_indices = get_video_indices()
 videoname = os.environ.get('VIDEO_FILENAME') +".mp4"
 videolocation = os.environ.get('VIDEO_PATH') + os.environ.get('VIDEO_FILENAME')
 video = cv2.VideoCapture(vid_indices[0])
-video.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
-video.set(cv2.CAP_PROP_FRAME_HEIGHT, 1024)
 frame_width = int(video.get(3))
 frame_height = int(video.get(4))
 size = (frame_width, frame_height)
@@ -45,14 +44,22 @@ output = cv2.VideoWriter(videolocation,
 def background_record(request, videolocation=videolocation):
     vid_indices = get_video_indices()
     global video
-    video = cv2.VideoCapture(vid_indices[0])
-
+    camera_idx = vid_indices[0]
+    print("camera_idx ============================")
+    print(camera_idx)
+    video = cv2.VideoCapture(camera_idx)
+    print("videolocation ============================")
+    print(videolocation)
+    frame_width = int(video.get(3))
+    frame_height = int(video.get(4))
+    size = (frame_width, frame_height)
+    fps = int(video.get(cv2.CAP_PROP_FPS))
     output = cv2.VideoWriter(videolocation, 
                          cv2.VideoWriter_fourcc(*'mp4v'),
                         fps, size)
 
     while (video.isOpened()):
-        print("recording video here")
+        print("recording video here "+ videolocation )
         ret, frame = video.read()
         if not ret:
             output.release()
@@ -70,7 +77,7 @@ def record(request):
     videolocation = os.environ.get('VIDEO_PATH') + videoname
     thread = threading.Thread(target=background_record(request = request, videolocation=videolocation))
     thread.start()
-    return HttpResponse("Started Recording")
+    return render(request, 'index.html')
 
 # Request to stop recording the video
 def stoprecord(request):
@@ -84,10 +91,10 @@ def stoprecord(request):
 
     global videolocation
     global videoname
-
+    print(videoname)
     client.fput_object(
         os.environ.get('MINIO_BUCKET_NAME'), videoname, videolocation,
     )
-
-    print('Finished Uploading')
-    return HttpResponse("Stopped recording uploaded video with name " + videoname +" to location "+ videolocation)
+    os.remove(videolocation)
+    print("Stopped recording uploaded video with name " + videoname +" to location "+ videolocation)
+    return render(request, 'index.html')

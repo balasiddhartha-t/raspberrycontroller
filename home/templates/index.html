@@ -10,6 +10,7 @@
     {% bootstrap_javascript %}
     {% load compress %}
     <link href="{% static 'test.css' %}" media="screen, projection" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content= "width=device-width, initial-scale=1.0"> 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -22,5 +23,10 @@
         <a class="button bottom" href="/command/backward"><i class="icon-pause"></i></a>
         <a class="center-button" href="/command/stop"><i class="icon-stop"></i></a>
       </nav>
+
+        <a href="/capture/start" class="button1">Start recording</a>
+        <a href="/capture/stop" class="button1">Stop recording</a>
+   
+
 </body>
 </html>
