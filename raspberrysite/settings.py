@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "home",
     "bootstrap5",
-    "compressor"
+    "compressor",
+    "raspberrysite",
 ]
 
 MIDDLEWARE = [
