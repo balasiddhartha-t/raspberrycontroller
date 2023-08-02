@@ -3,7 +3,7 @@ Description=A useful description to be shown in command-line tools
 
 [Service]
 Restart=always
-ExecStart=sudo /usr/bin/python3 /home/kali/Desktop/raspberrycontroller/manage.py runserver 0.0.0.0:8000
+ExecStart=sudo /usr/bin/python3 /home/user/Desktop/raspberrycontroller/manage.py runserver 0.0.0.0:8000
 User=root
 
 [Install]

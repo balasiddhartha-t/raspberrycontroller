@@ -5,7 +5,7 @@ dpkg --configure -a
 apt autoremove -y
 pip install -r requirements.txt
 mkdir /temp
-cp /home/kali/Desktop/raspberrycontroller/raspidjango.service /lib/systemd/system/raspidjango.service
+cp /home/user/Desktop/raspberrycontroller/raspidjango.service /lib/systemd/system/raspidjango.service
 systemctl daemon-reload
 systemctl start raspidjango.service
 systemctl status raspidjango.service
