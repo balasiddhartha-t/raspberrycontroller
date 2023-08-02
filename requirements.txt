@@ -1,6 +1,9 @@
 RPi.GPIO
 numpy
 minio
-django-compressor==2.4
-django-libsass==0.8
+django-compressor
+django-libsass
 django-bootstrap-v5
+opencv-python
+dotenv
+python-dotenv
