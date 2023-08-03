@@ -42,33 +42,34 @@ def run_on_startup():
                     axis_y = joysticks[0].get_axis(1)  # Y-axis index is 1
                     axis_z = joysticks[0].get_axis(2)  # Z-axis index is 2 (if available)
                     print("X-axis:", axis_x, " Y-axis:", axis_y, " Z-axis:", axis_z)
-                    if axis_x < -1 :
+                    if  axis_x > 0.5:
+                        print("Rotating right")
                         # commands for right
                         GPIO.output(3, True)
                         GPIO.output(5, False)
                         GPIO.output(8, False)
                         GPIO.output(10, False)
-                    elif axis_x > 1:
+                    elif axis_x <= -1.0:
+                        print("Rotating left")
                         # commands for left
                         GPIO.output(3, False)
                         GPIO.output(5, False)
                         GPIO.output(8, True)
                         GPIO.output(10, False)
-
-                    elif axis_y > 1 :
+                    elif axis_y > 0.5 :
+                        print("Going Forward")
                         # forward
                         GPIO.output(3, False)
                         GPIO.output(5, True)
                         GPIO.output(8, False)
                         GPIO.output(10, True)
-
-                    elif axis_y < -1 :
+                    elif axis_y < -0.5 :
+                        print("Going Backward")
                         # backward
                         GPIO.output(3, True)
                         GPIO.output(5, False)
                         GPIO.output(8, True)
                         GPIO.output(10, False)
-
 
 class RaspberrysiteConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
