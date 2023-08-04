@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path("capture/", include("capture.urls")),
-    path("", include("commands.urls")),
+    path("capture/", include("raspberrysite.capture.urls")),
+    path("", include("raspberrysite.commands.urls")),
     
 ]
