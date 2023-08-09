@@ -31,6 +31,10 @@ MINIO_BUCKET_NAME="some-raspi-bucket"
 MINIO_ACCESS_SECURE=False
 VIDEO_PATH="/temp/"
 VIDEO_FILENAME="myvideo"
+RASPI_FORWARD_MOTOR1=3
+RASPI_FORWARD_MOTOR2=5
+RASPI_BACKWARD_MOTOR1=8
+RASPI_BACKWARD_MOTOR2=10
 ````
 
 A MinIO server can be started with using the following commands:
@@ -39,6 +43,4 @@ https://min.io/docs/minio/container/index.html
 
 
 TODO: 
-1. Need to update the response status of the recording API when invoked
-2. Get the PINS from the config.
-3. Get the live feed into UI from the camera
+1. Get the live feed into UI from the camera
