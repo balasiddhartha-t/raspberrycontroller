@@ -43,4 +43,4 @@ https://min.io/docs/minio/container/index.html
 
 
 TODO: 
-1. Get the live feed into UI from the camera
+1. Screwed up the record function. Need to work on the record while safely streaming the response to the page.
